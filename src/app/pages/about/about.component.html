@@ -1,0 +1,111 @@
+<body class="bg-white text-gray-800 min-h-screen">
+    <div class="container mx-auto px-4 py-16 sm:py-24 flex flex-col md:flex-row items-center justify-center gap-12">
+        <!-- Profile Image -->
+        <div class="relative group md:w-1/2 flex justify-center">
+            <div class="relative">
+                <!-- Main Image -->
+                <div
+                    class="border-4 border-green-500 rounded-2xl p-1.5 inline-block transform group-hover:rotate-1 transition duration-300 shadow-lg">
+                    <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2024/01/avartar-anime-6.jpg"
+                        alt="Profile" class="w-72 h-72 sm:w-80 sm:h-80 object-cover rounded-xl">
+                </div>
+
+                <!-- Decorative Elements -->
+                <div
+                    class="absolute -top-4 -left-4 w-16 h-16 bg-yellow-400 rounded-full opacity-20 group-hover:opacity-30 transition duration-500">
+                </div>
+                <div
+                    class="absolute -bottom-4 -right-4 w-24 h-24 bg-green-400 rounded-full opacity-20 group-hover:opacity-30 transition duration-500">
+                </div>
+                <div
+                    class="absolute top-1/2 -right-8 w-8 h-8 bg-purple-400 rounded-full opacity-0 group-hover:opacity-20 transition duration-700">
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Info -->
+        <div *ngIf="user" class="md:w-1/2 space-y-6">
+            <!-- Title -->
+            <div class="relative inline-block">
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-green-600">
+                    ABOUT <span class="text-gray-800">ME</span>
+                </h2>
+                <div
+                    class="absolute -bottom-2 left-0 w-full h-1 bg-green-500 transform scale-x-0 group-hover:scale-x-100 origin-left transition duration-500">
+                </div>
+            </div>
+
+            <!-- About Text -->
+            <p class="text-gray-600 text-lg leading-relaxed max-w-lg">
+                {{user.about}}
+            </p>
+
+            <!-- Personal Info -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                <div
+                    class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-300 border border-gray-200">
+                    <div class="bg-green-100 p-2 rounded-full">
+                        <i class="fas fa-user text-green-600"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Name</p>
+                        <p class="font-medium text-gray-800">{{user.name}}</p>
+                    </div>
+                </div>
+
+                <div
+                    class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-300 border border-gray-200">
+                    <div class="bg-blue-100 p-2 rounded-full">
+                        <i class="fas fa-calendar-alt text-blue-600"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Age</p>
+                        <p class="font-medium text-gray-800">{{user.age}} Tuổi</p>
+                    </div>
+                </div>
+
+                <div
+                    class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-300 border border-gray-200">
+                    <div class="bg-purple-100 p-2 rounded-full">
+                        <i class="fas fa-map-marker-alt text-purple-600"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Address</p>
+                        <p class="font-medium text-gray-800">{{user.adress}}</p>
+                    </div>
+                </div>
+
+                <div
+                    class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-300 border border-gray-200">
+                    <div class="bg-yellow-100 p-2 rounded-full">
+                        <i class="fas fa-phone text-yellow-600"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Phone</p>
+                        <p class="font-medium text-gray-800">{{user.phone}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div
+                class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg mt-4 hover:bg-gray-100 transition duration-300 border border-gray-200">
+                <div class="bg-red-100 p-2 rounded-full">
+                    <i class="fas fa-envelope text-red-600"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500">Email</p>
+                    <p class="font-medium text-gray-800">{{user.email}}</p>
+                </div>
+            </div>
+
+            <!-- Download CV Button -->
+            <div class="mt-8">
+                <a href="#"
+                    class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-bold rounded-full shadow-md hover:shadow-lg hover:from-yellow-500 hover:to-yellow-600 transition duration-300 transform hover:-translate-y-1">
+                    <i class="fas fa-download mr-2"></i> Download CV
+                </a>
+            </div>
+        </div>
+    </div>
+</body>

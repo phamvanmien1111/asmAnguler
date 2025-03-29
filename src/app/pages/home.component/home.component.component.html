@@ -1,0 +1,224 @@
+<section id="about"
+    class="max-w-6xl mx-auto mt-10 p-8 bg-white rounded-2xl shadow-xl hover:shadow-2xl transition duration-300">
+    <div *ngIf="user" class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+            <h2 class="text-3xl md:text-4xl font-bold leading-snug">
+                Xin chào! Tôi là <span class="text-blue-600">{{ user?.name }}</span>, <br />
+                Tôi học <span class="text-blue-600">{{ user.bio }}</span> tại <br />
+                <span class="text-blue-600">{{ user.student }}</span>.
+            </h2>
+            <p class="text-gray-600 mt-6 text-lg">{{ user.about }}</p>
+
+            <div class="flex flex-wrap gap-4 mt-8">
+                <a routerLink="/contact"
+                    class="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:shadow-md transition-all duration-300">
+                    Liên Hệ <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+
+                <a href="#projects"
+                    class="px-6 py-3 border-2 border-blue-500 text-blue-500 rounded-lg hover:bg-blue-50 transition duration-300">
+                    Dự Án Của Tôi
+                </a>
+            </div>
+
+            <div class="flex space-x-6 mt-8 text-gray-600">
+                <a href="https://github.com/phamvanmien1111" class="hover:text-black transition duration-300">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="#" class="hover:text-blue-600 transition duration-300">
+                    <i class="fab fa-facebook text-2xl"></i>
+                </a>
+                <a href="#" class="hover:text-blue-500 transition duration-300">
+                    <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="relative">
+            <div class="relative w-64 h-64 mx-auto">
+                <img [src]="user.avatar.trim()" alt="Avatar của {{ user.name }}"
+                    class="w-full h-full rounded-full border-4 border-white shadow-xl object-cover z-10 relative">
+
+                <!-- Decorative elements -->
+                <div class="absolute top-0 left-0 w-4 h-4 bg-blue-500 rounded-full animate-ping"></div>
+                <div class="absolute top-20 right-4 w-3 h-3 bg-green-500 rounded-full"></div>
+                <div class="absolute bottom-12 left-8 w-3 h-3 bg-purple-500 rounded-full"></div>
+
+                <!-- Background circle -->
+                <div class="absolute -z-10 -inset-4 rounded-full bg-blue-100/50"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="max-w-6xl mx-auto mt-16">
+    <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-800">Dự Án Đã Thực Hiện</h2>
+        <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Những dự án tôi đã hoàn thành với nhiều công nghệ khác nhau</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div *ngFor="let project of projects"
+            class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 group">
+            <div class="relative overflow-hidden h-60">
+                <img [src]="project.image" alt="{{ project.title }}"
+                    class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <span class="inline-block px-3 py-1 bg-blue-500 text-white text-sm rounded-full mb-2">
+                        {{ project.technology }}
+                    </span>
+                    <h3 class="text-xl font-bold text-white">{{ project.title }}</h3>
+                </div>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-600 line-clamp-2">{{ project.description }}</p>
+                <a [routerLink]="['/projectsdetail', project._id]"
+                    class="inline-flex items-center mt-4 text-blue-600 font-medium hover:text-blue-800 transition">
+                    Xem chi tiết <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="text-center mt-12">
+    <a href="#"
+        class="inline-flex items-center px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-blue-600 transition duration-300">
+        Xem tất cả dự án <i class="fas fa-arrow-right ml-2"></i>
+    </a>
+</div>
+<!-- Education Section -->
+<section id="education" class="max-w-6xl mx-auto mt-16 bg-white rounded-2xl shadow-lg overflow-hidden">
+    <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+        <div class="p-8 hover:bg-gray-50 transition duration-300">
+            <div class="flex items-start">
+                <div class="bg-primary/10 p-4 rounded-lg text-primary mr-6">
+                    <i class="fas fa-graduation-cap text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800">Cao Đẳng FPT Polytechnic</h3>
+                    <p class="text-gray-600 mt-2 flex items-center">
+                        <i class="fas fa-book-open mr-2 text-primary"></i> Chuyên ngành: Frontend Developer
+                    </p>
+                    <p class="text-gray-600 mt-1 flex items-center">
+                        <i class="fas fa-calendar-alt mr-2 text-primary"></i> Năm tốt nghiệp: 2025
+                    </p>
+                    <p class="text-gray-600 mt-1 flex items-center">
+                        <i class="fas fa-star mr-2 text-primary"></i> GPA: 3.8/4.0
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-8 hover:bg-gray-50 transition duration-300">
+            <div class="flex items-start">
+                <div class="bg-green-500/10 p-4 rounded-lg text-green-500 mr-6">
+                    <i class="fas fa-certificate text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800">Chứng Chỉ & Giải Thưởng</h3>
+                    <p class="text-gray-600 mt-2 flex items-center">
+                        <i class="fas fa-award mr-2 text-green-500"></i> Udemy - ReactJS Masterclass
+                    </p>
+                    <p class="text-gray-600 mt-1 flex items-center">
+                        <i class="fas fa-award mr-2 text-green-500"></i> Google UX Design Certificate
+                    </p>
+                    <p class="text-gray-600 mt-1 flex items-center">
+                        <i class="fas fa-trophy mr-2 text-green-500"></i> Giải nhì Hackathon FPT 2023
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="max-w-6xl mx-auto mt-16">
+    <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-800">Công Nghệ Thành Thạo</h2>
+        <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Những công nghệ và công cụ tôi sử dụng hàng ngày</p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition text-center">
+            <i class="fab fa-html5 text-5xl text-orange-500 mb-3"></i>
+            <p class="font-medium">HTML5</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition text-center">
+            <i class="fab fa-css3-alt text-5xl text-blue-500 mb-3"></i>
+            <p class="font-medium">CSS3</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition text-center">
+            <i class="fab fa-js text-5xl text-yellow-500 mb-3"></i>
+            <p class="font-medium">JavaScript</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition text-center">
+            <i class="fab fa-react text-5xl text-blue-400 mb-3"></i>
+            <p class="font-medium">React</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition text-center">
+            <i class="fab fa-angular text-5xl text-red-500 mb-3"></i>
+            <p class="font-medium">Angular</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition text-center">
+            <i class="fab fa-node-js text-5xl text-green-500 mb-3"></i>
+            <p class="font-medium">Node.js</p>
+        </div>
+    </div>
+</section>
+<section id="contact"
+        class="max-w-6xl mx-auto mt-16 bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-black">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">Bạn có dự án muốn thảo luận?</h2>
+                <p class="text-black/90 mb-6">Tôi luôn sẵn sàng cho các cơ hội hợp tác mới. Hãy liên hệ với tôi nếu bạn
+                    cần một lập trình viên Frontend tận tâm và sáng tạo.</p>
+                <a href="/contact"
+                    class="inline-flex items-center px-6 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition">
+                    <i class="fas fa-envelope mr-2"></i> Gửi Email Ngay
+                </a>
+            </div>
+            <div class="text-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/3059/3059518.png" alt="Contact"
+                    class="w-48 h-48 mx-auto animate-float">
+            </div>
+        </div>
+    </section>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E40AF',
+                        dark: '#1F2937',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-reverse': 'float-reverse 5s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        'float-reverse': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(10px)' },
+                        }
+                    }
+                }
+            }
+        }
+          const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fadeIn');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+    </script>
