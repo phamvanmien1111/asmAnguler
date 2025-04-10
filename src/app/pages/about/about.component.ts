@@ -24,4 +24,7 @@ export class AboutComponent implements OnInit  {
       }
     });
   }
+  viewCV():void{
+    this.UserService.viewCV()
+  }
 }

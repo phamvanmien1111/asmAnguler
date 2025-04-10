@@ -15,7 +15,6 @@ import { EducationComponent } from './pages/education/education.component'
         { path: 'about' , component:AboutComponent},
         { path:'project',component:ProjectComponent},
         { path:'education',component:EducationComponent}
-
 ];
 
 @NgModule({

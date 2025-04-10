@@ -10,4 +10,8 @@ export class UserService {
   getUser(): Observable<{ user: any; projects: any[] }> {
     return this.http.get<{ user: any; projects: any[] }>(this.apiUrl);
   }
+  
+  viewCV(): void {
+    window.open('http://localhost:3000/pdf/view', '_blank');
+  }
 }

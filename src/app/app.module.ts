@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProjectComponent } from './pages/project/project.component';
+import { FormsModule } from '@angular/forms';
+
 import { EducationComponent } from './pages/education/education.component';
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { EducationComponent } from './pages/education/education.component';
     BrowserModule,
     AppRoutingModule,
      HttpClientModule,
-     CommonModule
+     CommonModule,
+     FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
